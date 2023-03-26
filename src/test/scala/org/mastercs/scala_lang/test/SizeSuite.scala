@@ -1,4 +1,4 @@
-package org.mastercs.bigdata.test
+package org.mastercs.scala_lang.test
 
 import org.scalatest.funsuite.AnyFunSuite
 
