@@ -67,7 +67,7 @@ object DarkSyntaxSugars extends App {
         private var internalMember: Int = 0
 
         // getter
-        def member = internalMember
+        def member: Int = internalMember
 
         // setter
         def member_=(value: Int): Unit = {
