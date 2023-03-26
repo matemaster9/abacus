@@ -1,5 +1,6 @@
 package org.mastercs.bigdata.flink_scala
 
+import org.apache.flink.api.common.JobExecutionResult
 import org.apache.flink.api.scala._
 import org.apache.flink.streaming.api.scala.StreamExecutionEnvironment
 
@@ -26,7 +27,7 @@ object BatchWordCount {
                 .print()
     }
 
-    def streamWordCount(filePath: String) = {
+    def streamWordCount(filePath: String): JobExecutionResult = {
         val env = StreamExecutionEnvironment.getExecutionEnvironment
         env.readTextFile(filePath)
                 .flatMap(_.split(" "))
