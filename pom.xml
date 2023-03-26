@@ -13,6 +13,8 @@
     </properties>
 
     <dependencies>
+
+        <!--flink-->
         <dependency>
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-scala_2.12</artifactId>
@@ -30,12 +32,16 @@
             <artifactId>flink-clients_2.12</artifactId>
             <version>${flink.version}</version>
         </dependency>
+        <!--flink-->
 
+        <!--scalatest-->
         <dependency>
             <groupId>org.scalatest</groupId>
             <artifactId>scalatest_2.12</artifactId>
             <version>3.2.15</version>
             <scope>test</scope>
         </dependency>
+        <!--scalatest-->
+
     </dependencies>
 </project>
