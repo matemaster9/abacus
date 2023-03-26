@@ -8,6 +8,8 @@ object ListUsingCase {
 
     def main(args: Array[String]): Unit = {
         firstOrder()
+        advancedMethod()
+        companionObjectMethod()
     }
 
     def listLiteral(): Unit = {
@@ -79,9 +81,10 @@ object ListUsingCase {
 
         // 扁平化处理，将列表的列表变成单列表
         println(List("Apple", "pear", "orange").flatMap(_.toList))
-        println(List("Apple", "pear", "orange")
-                .map(_.toList)
-                .flatten
+        println(
+            List("Apple", "pear", "orange")
+                    .map(_.toList)
+                    .flatten
         )
 
         // mkString
@@ -96,5 +99,35 @@ object ListUsingCase {
         val arr = new Array[Int](10)
         List(1, 2, 3, 4, 5, 6, 7, 8, 9, 10).copyToArray(arr, 0)
         println(arr.mkString("Array(", ", ", ")"))
+    }
+
+    def advancedMethod(): Unit = {
+        // 映射与遍历
+        println(List(0, 0, 0).map(_ + 1))
+        println(List.range(1, 9).flatMap(i => List.range(-1, i)))
+        List.range(1, 9).foreach(println)
+
+        println(List.range(0, 10).filter(_ % 2 == 0))
+        println(List.range(0, 10).partition(_ > 5))
+        println(List.range(0, 10).find(_ % 2 == 0))
+        println(List.range(0, 10).takeWhile(_ % 2 == 0))
+        println(List.range(0, 10).dropWhile(_ % 2 == 0))
+
+        // 条件检查
+        println(List.range(0, 10).forall(_ > 0))
+        println(List.range(0, 10).exists(_ > 5))
+
+        // sort
+        println(List.range(0, 10).sortWith(_ > _))
+    }
+
+    def companionObjectMethod(): Unit = {
+        println(List.apply(0, 1))
+        println(List.range(0, 10))
+        println(List.fill(3)("ab"))
+        println(List.tabulate(5)(n => n * n))
+        println(
+            List.concat(List(0), List(1), List(2))
+        )
     }
 }
