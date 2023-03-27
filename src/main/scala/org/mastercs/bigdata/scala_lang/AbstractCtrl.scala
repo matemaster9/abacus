@@ -1,5 +1,7 @@
 package org.mastercs.bigdata.scala_lang
 
+import java.io.File
+
 object AbstractCtrl extends App {
 
     def twice(opr: Double => Double, arg: Double): Double = opr(opr(arg))
@@ -11,4 +13,20 @@ object AbstractCtrl extends App {
     def byNameAssert(predicate: => Boolean): Unit = if (!predicate) throw new AssertionError
 
     byNameAssert(5 > 3)
+
+    object FileMatcher {
+        private def findHere = new File(".").listFiles()
+
+        def filesEnding(query: String): Array[Boolean] = findHere.map(file => file.getName.endsWith(query))
+
+        def filesContaining(query: String): Array[Boolean] = findHere.map(_.getName.contains(query))
+
+        def filesRegex(query: String): Array[Boolean] = findHere.map(_.getName.matches(query))
+    }
+
+    object FileMatcherRefactor {
+        private def findHere = new File(".").listFiles()
+    }
+
+
 }

@@ -25,11 +25,9 @@ object IterableColl extends App {
         List(6, 7)
     ).flatMap(list => list.map(_ * 2)).foreach(println)
 
-    List(1, 2, 3)
+    println(List(1, 2, 3)
             .groupBy(elem => elem % 2 == 0)
-            .collect {
-                case (bool, ints) => println(ints)
-                case _ => Nothing
-            }
+            .mkString(","))
+
 
 }
