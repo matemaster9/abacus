@@ -16,4 +16,9 @@ object CurryingFunctions extends App {
     val add10000: Int => Int = curriedFunc(10000)
     println(add10000(1))
     println(curriedFunc(10000)(1))
+
+
+    def twice(op: Double => Double, number: Double) = op(op(number))
+
+    println(twice(num => num * num, 100.0))
 }
