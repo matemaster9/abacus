@@ -24,7 +24,24 @@ object TypeParameterization extends App {
         def enqueue(x: T) = new SlowHeadQueue(x :: smele)
     }
 
-    class FunctionalQueue[T](private val leading: List[T], private val trailing: List[T]) {
+    class FunctionalQueue[T] private(private val leading: List[T], private val trailing: List[T]) {
+
+        /**
+         * 使用辅助构造，隐藏主构造
+         */
+        def this() = {
+            this(Nil, Nil)
+        }
+
+        /**
+         * 不使用this(elems: T*)为了避免与enqueue歧义
+         *
+         * @param elems
+         */
+        def this(elems: List[T]) = {
+            this(elems, Nil)
+        }
+
         private def mirror: FunctionalQueue[T] = {
             if (leading.isEmpty) {
                 new FunctionalQueue(trailing.reverse, Nil)
@@ -42,4 +59,21 @@ object TypeParameterization extends App {
 
         def enqueue(elem: T) = new FunctionalQueue(leading, elem :: trailing)
     }
+
+    /**
+     * 伴生类apply工厂方法
+     */
+    object FunctionalQueue {
+        def apply[T](elems: T*) = new FunctionalQueue[T](elems.to, Nil)
+    }
+
+    val functionalQueue = new FunctionalQueue[Int]()
+    val value: FunctionalQueue[Int] = functionalQueue.enqueue(1)
+            .enqueue(2)
+            .enqueue(3)
+            .enqueue(4)
+    println(value.head)
+    println(value.tail)
+
+    println(FunctionalQueue(1, 2, 3).head)
 }
