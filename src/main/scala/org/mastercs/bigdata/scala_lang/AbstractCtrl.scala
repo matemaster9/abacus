@@ -15,7 +15,7 @@ object AbstractCtrl extends App {
     byNameAssert(5 > 3)
 
     object FileMatcher {
-        private def findHere = new File(".").listFiles()
+        private def findHere: Array[File] = new File(".").listFiles()
 
         def filesEnding(query: String): Array[Boolean] = findHere.map(file => file.getName.endsWith(query))
 
@@ -25,7 +25,15 @@ object AbstractCtrl extends App {
     }
 
     object FileMatcherRefactor {
-        private def findHere = new File(".").listFiles()
+        private def findHere: Array[File] = new File(".").listFiles()
+
+        def filesMatching(matcher: String => Boolean): Array[Boolean] = findHere.map(file => matcher(file.getName))
+
+        def filesEnd(query: String): Array[Boolean] = filesMatching(_.endsWith(query))
+
+        def filesContain(query: String): Array[Boolean] = filesMatching(_.contains(query))
+
+        def filesRegex(query: String): Array[Boolean] = filesMatching(_.matches(query))
     }
 
 
