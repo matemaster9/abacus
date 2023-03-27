@@ -59,18 +59,6 @@ object PatternMatching {
         println(matchVariable(b))
         println(matchVariable(c))
 
-        //        // 构造方法模式匹配 报错，暂不支持
-        //        val person1 = new Person("Alice", 25)
-        //        val person2 = new Person("Bob")
-        //
-        //        def matchConstructor(person: Person): String = person match {
-        //            case Person("Alice", 25) => "Hi Alice!"
-        //            case Person("Bob", 0) => "Hello Bob!"
-        //            case Person(name, age) => s"Nice to meet you, $name! You are $age years old."
-        //        }
-        //
-        //        println(matchConstructor(person1))
-        //        println(matchConstructor(person2))
 
         // 序列模式匹配
         val seq1 = Seq(1, 2, 3)
@@ -159,8 +147,25 @@ object PatternMatching {
         println(matchPersonWithGuard(person4))
         println(matchPersonWithGuard(person5))
         println(matchPersonWithGuard(person6))
+
+        // 构造方法模式匹配 报错，暂不支持
+        val person7 = Person("Alice", 25)
+        val person8 = new Person("Bob")
+
+        def matchConstructor(person: Person): String = person match {
+            case Person("Alice", 25) => "Hi Alice!"
+            case Person("Bob", 0) => "Hello Bob!"
+            case Person(name, age) => s"Nice to meet you, $name! You are $age years old."
+        }
+
+        println(matchConstructor(person7))
+        println(matchConstructor(person8))
     }
 
 
-    case class Person(name: String, age: Int)
+    case class Person(name: String, age: Int) {
+        def this(name: String) = {
+            this(name, 0)
+        }
+    }
 }
