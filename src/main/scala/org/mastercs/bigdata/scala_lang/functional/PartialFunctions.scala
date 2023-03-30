@@ -1,7 +1,5 @@
 package org.mastercs.bigdata.scala_lang.functional
 
-import scala.io.Source.stdin
-
 object PartialFunctions extends App {
 
 
@@ -54,7 +52,30 @@ object PartialFunctions extends App {
         case "logout" => "bye scala-lang"
         case _ => "invalid input"
     }
-    stdin.getLines().map(chatRobot).foreach(println)
-//    stdin.getLines().foreach(line => println("you input: " + chatRobot(line)))
+    //    stdin.getLines().map(chatRobot).foreach(println)
+    //    stdin.getLines().foreach(line => println("you input: " + chatRobot(line)))
+
+
+    val valueList = List(1, 2, 3, 4, 5, 6, 7, 8, 9)
+    println(valueList.map(_ + 1).filter(_ % 2 == 0))
+
+    val anyList = List(1, 2, 3, 4, 5, 6, 7, 8, 9, "scala-lang")
+    // 偏函数过滤非数字，并数字+1
+    val collectResult: List[Int] = anyList.collect(new PartialFunction[Any, Int] {
+        override def isDefinedAt(x: Any): Boolean = if (x.isInstanceOf[Int]) true else false
+
+        override def apply(v1: Any): Int = v1.asInstanceOf[Int] + 1
+    })
+    // 上述偏函数的简写方式
+    val abridgedPartialFunc: PartialFunction[Any, Int] = {
+        case v: Int => v + 1
+    }
+    val ints: List[Int] = anyList.collect {
+        case v: Int => v + 1
+    }
+
+    println(collectResult)
+    println(anyList.collect(abridgedPartialFunc))
+    println(ints)
 
 }
