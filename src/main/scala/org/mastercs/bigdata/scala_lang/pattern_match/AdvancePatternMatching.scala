@@ -32,4 +32,24 @@ object AdvancePatternMatching extends App {
         case _ => "no property"
     }
     println(mathProperty2)
+
+    val capitals = Map(
+        "China" -> "Beijing",
+        "America" -> "",
+        "France" -> "Paris",
+        "Japan" -> "Tokyo"
+    )
+
+    def capitalMatch(cap: Option[String]) = cap match {
+        case Some(s) => s
+        case None => "not exists"
+    }
+
+    println(capitalMatch(capitals.get("China")))
+
+    // Scala中的for表达式可以使用元组模式来迭代元组中的元素。例如，可以使用以下代码迭代元组中的元素：
+    for ((a, b) <- List((1, 2), (3, 4), (5, 6))) {
+        println("a: " + a)
+        println("b: " + b)
+    }
 }

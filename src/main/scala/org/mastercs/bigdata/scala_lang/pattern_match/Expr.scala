@@ -10,6 +10,6 @@ trait Expr {
     case class BinOp(operator: String, left: Expr, right: Expr) extends Expr
 }
 
-object ExprDemo extends App {
+object Expr extends App {
 
 }

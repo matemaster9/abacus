@@ -5,7 +5,7 @@ package org.mastercs.bigdata.scala_lang.oop
  *
  * @author matemaster
  */
-class ImmutableRational(numerator: Int, denominator: Int) {
+class ImmutableRational(numerator: Int, denominator: Int) extends Ordered[ImmutableRational] {
 
     // 分母校验不为0
     require(denominator != 0, "denominator mustn't be 0")
@@ -57,6 +57,14 @@ class ImmutableRational(numerator: Int, denominator: Int) {
         if (y == 0) x
         else greatestCommonDivisor(y, x % y)
     }
+
+    /**
+     * Ordered接口方法
+     *
+     * @param that
+     * @return
+     */
+    override def compare(that: ImmutableRational): Int = (this.n * that.d) - (this.d * that.n)
 }
 
 object ImmutableRational {
@@ -68,5 +76,6 @@ object ImmutableRational {
         println(rational1.add(rational2))
         println(rational1.add(2))
         println(rational1.lessThan(rational2))
+        println(rational1 > rational2)
     }
 }
