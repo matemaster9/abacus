@@ -56,4 +56,10 @@ class Iterables extends AnyFunSuite {
             }
         }
     }
+
+    test("统计字符串中字母出现的次数") {
+        val str = "hello world"
+        val freq = str.groupBy(identity).mapValues(_.length)
+        println(freq)
+    }
 }
