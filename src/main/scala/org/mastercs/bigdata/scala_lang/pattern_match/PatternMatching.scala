@@ -1,5 +1,16 @@
 package org.mastercs.bigdata.scala_lang.pattern_match
 
+/**
+ * Scala支持的模式匹配种类
+ * WildCard Pattern
+ * Variable Pattern
+ * Typed Pattern
+ * Constant Pattern
+ * Stable Pattern
+ * Tuple Pattern
+ * Constructor Pattern
+ * Sequence Pattern
+ */
 object PatternMatching {
 
 
