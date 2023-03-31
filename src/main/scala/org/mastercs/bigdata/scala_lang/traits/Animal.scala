@@ -5,15 +5,16 @@ trait Animal {
     def sound(): String
 }
 
-class Dog extends Animal {
-    def sound(): String = "Woof"
-}
-
-class Cat extends Animal {
-    def sound(): String = "Meow"
-}
-
 object Animal extends App {
+
+    class Dog extends Animal {
+        def sound(): String = "Woof"
+    }
+
+    class Cat extends Animal {
+        def sound(): String = "Meow"
+    }
+
     val dog = new Dog()
     val cat = new Cat()
 
