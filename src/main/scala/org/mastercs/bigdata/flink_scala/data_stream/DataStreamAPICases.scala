@@ -11,8 +11,9 @@ object DataStreamAPICases {
     def main(args: Array[String]): Unit = {
         val env = StreamExecutionEnvironment.getExecutionEnvironment
         val source = env.fromCollection(UserLog.getLogs(10))
-        source.filter(_.seed > 100)
-                .keyBy(_.seed)
+        source.map(_.seed)
+                .filter(_ > 100)
+                .keyBy(seed => seed)
                 .print()
         env.execute()
     }
