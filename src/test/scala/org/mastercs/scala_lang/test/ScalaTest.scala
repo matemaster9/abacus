@@ -4,6 +4,7 @@ import org.mastercs.bigdata.scala_lang.traits.SealedColor
 import org.mastercs.bigdata.scala_lang.traits.SealedColor.Blue
 import org.scalatest.funsuite.AnyFunSuite
 
+import scala.io.Source
 import scala.util.Random
 
 class ScalaTest extends AnyFunSuite {
@@ -21,5 +22,11 @@ class ScalaTest extends AnyFunSuite {
         }
 
         urls.foreach(println)
+    }
+
+    test("Scala将文件数据读取到集合中代码") {
+        val source = Source.fromFile("docs/users.txt")
+        println(source.getLines().toArray.mkString("Array(", ", ", ")"))
+        source.close()
     }
 }
