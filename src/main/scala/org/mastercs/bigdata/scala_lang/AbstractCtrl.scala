@@ -1,6 +1,16 @@
 package org.mastercs.bigdata.scala_lang
 
+import org.apache.flink.api.common.functions.FlatMapFunction
+import org.apache.flink.util.Collector
+
 import java.io.File
+import scala.io.Source
+
+class AbstractCtrl extends FlatMapFunction[String, String] {
+    override def flatMap(value: String, out: Collector[String]): Unit = {
+        value.toLowerCase.split("\\W+").filter(_.nonEmpty).foreach(out.collect)
+    }
+}
 
 object AbstractCtrl extends App {
 
@@ -36,5 +46,17 @@ object AbstractCtrl extends App {
         def filesRegex(query: String): Array[Boolean] = filesMatching(_.matches(query))
     }
 
+    val source = Source.fromFile("LICENSE")
+    source.mkString.split("\\s+")
+            .flatMap(_.toLowerCase.split("\\W+").filter(_.nonEmpty))
+            .map((_, 1))
+            .groupBy(_._1)
+            .mapValues(_.map(_._2).sum)
+            .toList
+            .sortBy(_._2)
+            .reverse
+            .take(10)
+            .foreach(println)
+    source.close()
 
 }
