@@ -12,13 +12,17 @@ object WindowWordCount {
     def main(args: Array[String]): Unit = {
         val env = StreamExecutionEnvironment.getExecutionEnvironment
         env.socketTextStream("localhost", 9999)
-                .flatMap(new FlatMapAbstractCtrl)
+                .flatMap(new BraceAbstractCtrl)
                 .map((_, 1))
                 .keyBy(_._1)
                 .window(TumblingProcessingTimeWindows.of(Time.seconds(5)))
                 .sum(1)
                 .print()
         env.execute("Window Stream WordCount")
+
+        val braceAbstractCtrl: FlatMapFunction[String, String] = (value: String, out: Collector[String]) => {
+            value.toLowerCase.split("\\W+").filter(_.nonEmpty).foreach(out.collect)
+        }
     }
 
     /**
@@ -26,7 +30,7 @@ object WindowWordCount {
      * 2. 花括号语法实现
      * 3. 直接lambda表达式实现
      */
-    class FlatMapAbstractCtrl extends FlatMapFunction[String, String] {
+    class BraceAbstractCtrl extends FlatMapFunction[String, String] {
         override def flatMap(value: String, out: Collector[String]): Unit = {
             value.toLowerCase.split("\\W+").filter(_.nonEmpty).foreach(out.collect)
         }
