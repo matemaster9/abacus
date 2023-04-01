@@ -1,4 +1,4 @@
-package org.mastercs.bigdata.flink_scala
+package org.mastercs.bigdata.flink_scala.source_operator
 
 import org.apache.flink.streaming.api.scala.{StreamExecutionEnvironment, createTypeInformation}
 
