@@ -82,7 +82,7 @@ object StackableTraits extends App {
     println(rightFirst.get())
     println(rightFirst.get())
 
-    val rightFirst2 = new BasicIntQueue  with Filtering with Incrementing
+    val rightFirst2 = new BasicIntQueue with Filtering with Incrementing
     rightFirst2.put(-1)
     rightFirst2.put(0)
     rightFirst2.put(1)

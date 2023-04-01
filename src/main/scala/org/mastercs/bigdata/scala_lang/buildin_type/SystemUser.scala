@@ -5,5 +5,5 @@ class SystemUser private(val username: String, val password: String) {
 }
 
 object SystemUser {
-    
+
 }

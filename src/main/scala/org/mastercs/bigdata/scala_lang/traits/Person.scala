@@ -1,6 +1,6 @@
 package org.mastercs.bigdata.scala_lang.traits
 
-class  Person(var name: String, var age: Int) extends Speaker {
+class Person(var name: String, var age: Int) extends Speaker {
     // 辅助构造函数
     def this(name: String) {
         this(name, 0)

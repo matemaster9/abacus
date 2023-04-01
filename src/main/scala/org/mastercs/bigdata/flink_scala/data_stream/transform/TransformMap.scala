@@ -15,7 +15,7 @@ object TransformMap {
         )
         source.map(event => event.user).print("1")
         source.map(new MapFunctionImpl).print("2")
-        source.map(_.user ).print("3")
+        source.map(_.user).print("3")
         env.execute()
     }
 
