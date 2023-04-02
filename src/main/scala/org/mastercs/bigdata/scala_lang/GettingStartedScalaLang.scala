@@ -60,7 +60,7 @@ object GettingStartedScalaLang {
 
         val provinceMap = HashMap("anhui" -> "hefei", "zhejiang" -> "hangzhou")
 
-        def printArgs(args: String*) = args.foreach(println)
+        def printArgs(args: String*): Unit = args.foreach(println)
 
         def formatArgs(args: String*): String = args.mkString("\n")
 
