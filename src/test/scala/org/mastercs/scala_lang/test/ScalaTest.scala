@@ -1,10 +1,11 @@
 package org.mastercs.scala_lang.test
 
+import com.fasterxml.jackson.databind.ObjectMapper
+import org.mastercs.bigdata.flink_scala.source_operator.CustomSourceEventLog
+import org.mastercs.bigdata.flink_scala.util.JsonUtil
 import org.mastercs.bigdata.scala_lang.traits.SealedColor
 import org.mastercs.bigdata.scala_lang.traits.SealedColor.Blue
 import org.scalatest.funsuite.AnyFunSuite
-
-import scala.io.Source
 
 import scala.io.Source
 import scala.util.Random
@@ -38,5 +39,18 @@ class ScalaTest extends AnyFunSuite {
         val source = Source.fromFile("docs/users.txt")
         println(source.getLines().toArray.mkString("Array(", ", ", ")"))
         source.close()
+    }
+
+    test("random类测试") {
+        val random = new Random()
+        println(random.nextInt(10 + 1).abs)
+    }
+
+    test("scala使用Jackson完成序列化") {
+        // 无效，输出 {}
+        val mapper = new ObjectMapper
+        println(mapper.writeValueAsString(CustomSourceEventLog.getLog))
+
+        println(JsonUtil.toJson(CustomSourceEventLog.getLog))
     }
 }
