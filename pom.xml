@@ -11,6 +11,7 @@
     <properties>
         <flink.version>1.13.6</flink.version>
         <jackson.version>2.14.2</jackson.version>
+        <gson.version>2.10.1</gson.version>
     </properties>
 
     <dependencies>
@@ -78,5 +79,12 @@
         </dependency>
         <!--jackson-->
 
+        <!--gson-->
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>${gson.version}</version>
+        </dependency>
+        <!--gson-->
     </dependencies>
 </project>
