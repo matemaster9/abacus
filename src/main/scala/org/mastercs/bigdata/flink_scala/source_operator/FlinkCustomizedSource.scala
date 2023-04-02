@@ -2,7 +2,7 @@ package org.mastercs.bigdata.flink_scala.source_operator
 
 import org.apache.flink.configuration.Configuration
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment
-import org.apache.flink.streaming.api.functions.source.{RichSourceFunction, SourceFunction}
+import org.apache.flink.streaming.api.functions.source.{ParallelSourceFunction, RichSourceFunction, SourceFunction}
 import org.mastercs.bigdata.flink_scala.util.JsonUtil
 
 import java.util.concurrent.TimeUnit
@@ -58,5 +58,14 @@ object FlinkCustomizedSource {
 
         // source组件销毁
         override def close(): Unit = super.close()
+    }
+
+    /**
+     * 标记类型ParallelSourceFunction，表示可以并行处理
+     */
+    class CustomParallelSource extends ParallelSourceFunction[CustomSourceEventLog] {
+        override def run(ctx: SourceFunction.SourceContext[CustomSourceEventLog]): Unit = ???
+
+        override def cancel(): Unit = ???
     }
 }
