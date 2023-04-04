@@ -1,4 +1,4 @@
-package org.mastercs.bigdata.leetcode
+package org.mastercs.bigdata.scala_lang.leetcode
 
 /**
  *

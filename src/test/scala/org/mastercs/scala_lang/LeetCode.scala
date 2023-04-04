@@ -1,6 +1,6 @@
 package org.mastercs.scala_lang
 
-import org.mastercs.bigdata.leetcode.Q58
+import org.mastercs.bigdata.scala_lang.leetcode.Q58
 import org.scalatest.funsuite.AnyFunSuite
 
 /**
