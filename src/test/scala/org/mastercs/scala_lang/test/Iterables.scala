@@ -36,7 +36,7 @@ class Iterables extends AnyFunSuite {
         println(iterable.hasDefiniteSize)
     }
 
-    test("子集合操作"){
+    test("子集合操作") {
         val iterable = Iterable(1, 2, 3)
         val grouped = iterable.grouped(2)
         grouped.foreach(println)

@@ -1,7 +1,5 @@
 package org.mastercs.bigdata.scala_lang.coll
 
-import scala.reflect.ClassTag.Nothing
-
 
 object IterableColl extends App {
 

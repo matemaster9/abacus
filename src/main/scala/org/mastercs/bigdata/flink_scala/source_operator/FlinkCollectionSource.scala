@@ -1,7 +1,6 @@
 package org.mastercs.bigdata.flink_scala.source_operator
 
 
-
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment
 
 import scala.util.Random
