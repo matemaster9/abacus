@@ -3,8 +3,8 @@ package org.mastercs.scala_lang.test
 import com.fasterxml.jackson.databind.ObjectMapper
 import org.mastercs.bigdata.flink_scala.source_operator.CustomSourceEventLog
 import org.mastercs.bigdata.flink_scala.util.JsonUtil
-import org.mastercs.bigdata.scala_lang.traits.SealedColor
-import org.mastercs.bigdata.scala_lang.traits.SealedColor.Blue
+import org.mastercs.bigdata.scala_lang.features.ApplyMethod
+import org.mastercs.bigdata.scala_lang.traits.{Blue, SealedColor}
 import org.scalatest.funsuite.AnyFunSuite
 
 import scala.io.Source
@@ -52,5 +52,11 @@ class ScalaTest extends AnyFunSuite {
         println(mapper.writeValueAsString(CustomSourceEventLog.getLog))
 
         println(JsonUtil.toJson(CustomSourceEventLog.getLog))
+    }
+
+    test("apply-method") {
+        val method = ApplyMethod("sample")
+        println(ApplyMethod("sample"))
+        println(method.argMember)
     }
 }
