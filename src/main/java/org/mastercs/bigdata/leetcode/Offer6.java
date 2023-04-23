@@ -1,9 +1,8 @@
-package org.mastercs.leetcode;
+package org.mastercs.bigdata.leetcode;
 
 import java.util.ArrayDeque;
 import java.util.Arrays;
 import java.util.Deque;
-import java.util.function.Function;
 
 public class Offer6 {
 
