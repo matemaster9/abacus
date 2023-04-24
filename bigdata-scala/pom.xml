@@ -19,4 +19,15 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
+    <dependencies>
+        <!--scalatest-->
+        <dependency>
+            <groupId>org.scalatest</groupId>
+            <artifactId>scalatest_2.12</artifactId>
+            <version>3.2.15</version>
+            <scope>test</scope>
+        </dependency>
+        <!--scalatest-->
+    </dependencies>
+
 </project>

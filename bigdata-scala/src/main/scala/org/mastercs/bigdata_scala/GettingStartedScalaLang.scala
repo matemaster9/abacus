@@ -1,4 +1,4 @@
-package org.mastercs.bigdata.scala_lang
+package org.mastercs.bigdata_scala
 
 import scala.collection.immutable.HashMap
 
