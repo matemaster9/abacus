@@ -25,7 +25,7 @@ object AbsoluteValue {
     /**
      * x阶乘l
      *
-     * @param x
+     * @param x x!
      * @return
      */
     def factorial(x: Int): Int = {
@@ -42,7 +42,7 @@ object AbsoluteValue {
     /**
      * 斐波拉契数 0, 1, 1, 2, 3, 5……
      *
-     * @param x
+     * @param x fib(x)
      * @return
      */
     def fib(x: Int): Int = {

@@ -10,7 +10,7 @@ class Company(var name: String, var foundTime: LocalDate, var rank: Int) {
 
 }
 
-object CompanyTest {
+object Company {
     def main(args: Array[String]): Unit = {
         val alibaba = new Company("Alibaba", LocalDate.of(1998, 1, 1), 1)
         println(alibaba.rank)
