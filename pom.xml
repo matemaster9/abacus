@@ -87,6 +87,15 @@
         </dependency>
         <!--gson-->
 
+        <!--functional java-->
+        <dependency>
+            <groupId>org.functionaljava</groupId>
+            <artifactId>functionaljava</artifactId>
+            <version>5.0</version>
+        </dependency>
+        <!--functional java-->
+
+
         <!--guava-->
         <dependency>
             <groupId>com.google.guava</groupId>

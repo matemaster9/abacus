@@ -1,4 +1,4 @@
-package org.mastercs.leetcode;
+package org.mastercs.bigdata.leetcode;
 
 /**
  * @author HUAWEI

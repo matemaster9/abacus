@@ -1,4 +1,4 @@
-package org.mastercs.leetcode;
+package org.mastercs.bigdata.leetcode;
 
 import java.util.Set;
 import java.util.stream.Collectors;
