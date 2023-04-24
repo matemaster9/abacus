@@ -6,7 +6,11 @@
 
     <groupId>org.mastercs</groupId>
     <artifactId>CS98.02_BigData</artifactId>
+    <packaging>pom</packaging>
     <version>M1</version>
+    <modules>
+        <module>bigdata-flink</module>
+    </modules>
 
     <properties>
         <flink.version>1.13.6</flink.version>
