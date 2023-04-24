@@ -63,6 +63,7 @@ object Closure {
         case "FL" => cost * 3
     }
 
+    // 部分应用withTax
     val locallyTaxed: Double => Double = withTax(_: Double, "NY")
     val costOfApples: Double = locallyTaxed(price("apples"))
     assert(Math.round(costOfApples) == 280)
