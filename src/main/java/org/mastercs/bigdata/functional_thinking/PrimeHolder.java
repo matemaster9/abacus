@@ -1,4 +1,4 @@
-package org.mastercs.functional_programming;
+package org.mastercs.bigdata.functional_thinking;
 
 import java.util.HashSet;
 import java.util.Iterator;
