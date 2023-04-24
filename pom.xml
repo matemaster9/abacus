@@ -10,6 +10,7 @@
     <version>M1</version>
     <modules>
         <module>bigdata-scala</module>
+        <module>bigdata-flink</module>
     </modules>
 
     <properties>
