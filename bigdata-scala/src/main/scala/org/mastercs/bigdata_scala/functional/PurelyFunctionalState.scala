@@ -4,6 +4,6 @@ import scala.util.Random
 
 object PurelyFunctionalState extends App {
 
-    val rng = Random
-    println(rng.nextDouble())
+  val rng = Random
+  println(rng.nextDouble())
 }

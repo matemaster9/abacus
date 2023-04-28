@@ -1,23 +1,20 @@
 package org.mastercs.bigdata_scala
 
-class ScalaString {
-
-}
+class ScalaString {}
 
 object ScalaString {
 
-    val member = "scala-lang"
+  val member = "scala-lang"
 
-    def main(args: Array[String]): Unit = {
-        val reversed = "scala-lang".reverse
-        println(reversed)
+  def main(args: Array[String]): Unit = {
+    val reversed = "scala-lang".reverse
+    println(reversed)
 
-        val length = "scala-lang".length
-        println(length)
+    val length = "scala-lang".length
+    println(length)
 
-        val splitString = "scala-lang".split("-", 2)
-        println(splitString.mkString("(", ",", ")"))
+    val splitString = "scala-lang".split("-", 2)
+    println(splitString.mkString("(", ",", ")"))
 
-        
-    }
+  }
 }
