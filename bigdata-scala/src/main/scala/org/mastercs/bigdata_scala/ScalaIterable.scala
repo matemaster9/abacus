@@ -172,6 +172,6 @@ object ScalaIterable extends App {
   println(Iterable(1, 2, 3, 4, 5, 6, 7, 8, 9, 10).reduceRightOption(_ * _))
   println(Iterable(1, 2, 3, 4, 5, 6, 7, 8, 9, 10).reduceOption(_ * _))
 
-  println(Iterable(1, 2, 3, 4, 5, 6, 7, 8, 9, 10).stringPrefix)
+  println(Iterable(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))
   println(Iterable(1, 2, 3, 4, 5, 6, 7, 8, 9, 10).view(1, 5))
 }

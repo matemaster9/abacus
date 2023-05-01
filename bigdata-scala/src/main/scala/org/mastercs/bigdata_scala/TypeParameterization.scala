@@ -64,9 +64,6 @@ object TypeParameterization extends App {
   /**
     * 伴生类apply工厂方法
     */
-  object FunctionalQueue {
-    def apply[T](elems: T*) = new FunctionalQueue[T](elems.to, Nil)
-  }
 
   val functionalQueue = new FunctionalQueue[Int]()
   val value: FunctionalQueue[Int] = functionalQueue
@@ -77,5 +74,4 @@ object TypeParameterization extends App {
   println(value.head)
   println(value.tail)
 
-  println(FunctionalQueue(1, 2, 3).head)
 }
