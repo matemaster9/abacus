@@ -37,6 +37,32 @@ class IterableOperations extends AnyFunSuite {
     println(name)
   }
 
+  test("map in set、map、seq") {
+    val numbers = List(1, 2, 3, 4, 5)
+
+    val doubledNumbers = numbers.map(x => x * 2)
+
+    // doubledNumbers 等于 List(2, 4, 6, 8, 10)
+    println(doubledNumbers)
+
+    val fruits = Set("apple", "banana", "orange")
+
+    val capitalizedFruits = fruits.map(fruit => fruit.capitalize)
+
+    // capitalizedFruits 等于 Set("Apple", "Banana", "Orange")
+    println(capitalizedFruits)
+
+    val scores = Map("Alice" -> 90, "Bob" -> 80, "Charlie" -> 85)
+
+    val increasedScores = scores.map {
+      case (name, score) => (name, score + 10)
+    }
+
+    // increasedScores 等于 Map("Alice" -> 100, "Bob" -> 90, "Charlie" -> 95)
+    println(increasedScores)
+
+  }
+
   test("toMap") {
     val companies = List(
       ("Alibaba", "mayun", 1998, 1),
@@ -46,7 +72,7 @@ class IterableOperations extends AnyFunSuite {
     println(companies.map(item => (item._1, item._4)).toMap)
   }
 
-  test("specific flods") {
+  test("specific folds") {
     val numbers = (1 to 10).toList
     println(numbers.sum)
     println(numbers.product)
@@ -134,6 +160,7 @@ class IterableOperations extends AnyFunSuite {
     )
 
     println(companies.groupBy(_._2))
+    println(companies.groupMap(_._2)(tuple => tuple._1))
   }
 
   test("zippers") {
@@ -143,9 +170,13 @@ class IterableOperations extends AnyFunSuite {
     val longList = List.fill(5)(Random.between(0, 10))
     val shortFiller = "x";
     val longFiller = 0;
-    println(shortList.zipAll(longList, shortList, longList))
+    println(shortList.zipAll(longList, shortFiller, longFiller)) // 谁call zip 谁补充
     println(longList.zipAll(shortList, shortFiller, longFiller))
 
-    println(List.fill(3)(Random.alphanumeric.take(2).mkString).zipWithIndex)
+    println(List.fill(3)(Random.alphanumeric.take(2).mkString).zipWithIndex) // List((elem, index) ……)
+  }
+
+  test("fold") {
+    val numbers = (1 to 10).toList
   }
 }
