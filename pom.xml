@@ -5,28 +5,15 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.mastercs</groupId>
-    <artifactId>CS98.02_BigData</artifactId>
+    <artifactId>Abacus</artifactId>
     <packaging>pom</packaging>
     <version>M1</version>
+
     <modules>
         <module>bigdata-scala</module>
-        <module>bigdata-flink</module>
     </modules>
 
-    <properties>
-
-    </properties>
-
     <dependencies>
-
-        <!--functional java-->
-        <dependency>
-            <groupId>org.functionaljava</groupId>
-            <artifactId>functionaljava</artifactId>
-            <version>5.0</version>
-        </dependency>
-        <!--functional java-->
-
 
         <!--guava-->
         <dependency>
@@ -36,11 +23,21 @@
         </dependency>
         <!--guava-->
 
+        <!--commons-lang3-->
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
             <version>3.12.0</version>
         </dependency>
+        <!---->
+
+        <!--lombok-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.26</version>
+        </dependency>
+        <!---->
 
     </dependencies>
 
